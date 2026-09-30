@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AI Chat Limit Tracker",
+  "version": "0.1.0",
+  "description": "Open-source browser extension that detects AI chat limits and helps preserve conversations.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "AI Chat Limit Tracker"
+  }
+}
